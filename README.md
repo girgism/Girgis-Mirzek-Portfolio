@@ -2,11 +2,11 @@
 
 A modern, responsive portfolio website showcasing my skills and experience as a Full-Stack Software Developer. Built with HTML5, Tailwind CSS, and vanilla JavaScript.
 
-**⚡[Preview Profile](https://girgism.github.io/Girgis-Mirzek-Portfolio/)
+\*\*⚡[Preview Profile](https://girgism.github.io/Girgis-Mirzek-Portfolio/)
 
 ## ✨ Features
 
-- **🎨 Modern Design**: Trendy gradient color scheme 
+- **🎨 Modern Design**: Trendy gradient color scheme
 - **📱 Fully Responsive**: Optimized for desktop, tablet, and mobile devices
 - **🧭 Smooth Navigation**: Fixed navbar with smooth scrolling and active section highlighting
 - **⚡ Fast Loading**: Lightweight and optimized for performance

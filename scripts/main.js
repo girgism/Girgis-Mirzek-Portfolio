@@ -2,7 +2,7 @@
 const root=document.documentElement,tb=document.getElementById('theme');
 let t;try{t=localStorage.getItem('theme')}catch(e){}
 if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
-function set(v){root.dataset.theme=v;tb.setAttribute('aria-pressed',v==='dark');try{localStorage.setItem('theme',v)}catch(e){}}
+function set(v){root.dataset.theme=v;const nx=v==='dark'?'Switch to light mode':'Switch to dark mode';tb.setAttribute('aria-label',nx);tb.title=nx;try{localStorage.setItem('theme',v)}catch(e){}}
 set(t);tb.onclick=()=>set(root.dataset.theme==='dark'?'light':'dark');
 const m=document.getElementById('menu'),l=document.getElementById('links');
 m.onclick=()=>m.setAttribute('aria-expanded',l.classList.toggle('open'));
@@ -44,6 +44,8 @@ document.querySelectorAll('main section').forEach(s=>so.observe(s));
             frag.append(w);
           });
           n.replaceWith(frag);
+        } else if (n.nodeType === 1 && n.classList.contains('pin')) {
+          n.classList.add('ch'); chars.push(n);
         } else if (n.nodeType === 1 && n.tagName !== 'BR') wrap(n);
       });
     })(el);
@@ -74,3 +76,13 @@ document.querySelectorAll('main section').forEach(s=>so.observe(s));
   });
   setTimeout(() => cta && cta.classList.add('show'), t);
 })();
+
+/* ===== Append to scripts/main.js ===== */
+
+/* Close the mobile menu when tapping outside it */
+addEventListener('click',e=>{
+  if(l.classList.contains('open')&&!e.target.closest('header.nav')){
+    l.classList.remove('open');m.setAttribute('aria-expanded','false');
+  }
+});
+
